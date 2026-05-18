@@ -1,0 +1,76 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bulb Toggle</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        img {
+            width: 300px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #fff;
+            color: #111;
+            font-weight: bold;
+        }
+        
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img id="bulb" src="Gluehlampe_01_off.png" alt="Bulb Off">
+        <br>
+        <button id="toggleBtn">Turn ON</button>
+    </div>
+
+    <script>
+        const bulb = document.getElementById('bulb');
+        const btn = document.getElementById('toggleBtn');
+
+        // Replace these filenames with your actual image paths if they are different
+        const bulbOffImg = "10.png"; 
+        const bulbOnImg = "11.png";   
+
+        btn.addEventListener('click', () => {
+            // Check if the current image source includes the "off" filename
+            if (bulb.src.includes(bulbOffImg)) {
+                bulb.src = bulbOnImg;
+                btn.textContent = "Turn OFF";
+                btn.style.backgroundColor = "#ffdb58"; // Gives the button a warm glow when 
+            } else {
+                bulb.src = bulbOffImg;
+                btn.textContent = "Turn ON";
+                btn.style.backgroundColor = "#fff";
+            }
+        });
+    </script>
+</body>
+</html>
